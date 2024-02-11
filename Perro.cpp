@@ -2,16 +2,11 @@
 #include <iostream>
 
 
-// Ejemplo de constructor por defecto con lista inicializadora
-// Perro::Perro() : edad(0), raza(""), tamanio(""), color("") {}
+using namespace std;
 
-// Ejemplo de constructor por defecto iniciando los atributos en el cuerpo del constructor
-Perro::Perro() {
-    this->edad = 0;
-    this->raza = "";
-    this->tamanio = "";
-    this->color = "";
-}
+
+// constructor por defecto con lista inicializadora
+Perro::Perro() : edad(0), raza(""), tamanio(""), color("") {}
 
 void Perro::ladrar() {
     std::cout << "Guau Guau" << std::endl;
@@ -74,6 +69,24 @@ Perro::~Perro() {
     delete pPropietario;
 }
 
+void Perro::setVete(Veterinaria *vVeterinaria) {
+    this->vVeterinaria = vVeterinaria;
+}
+
+void Perro::vetperro() {
+    cout << "A la veterinaria que pertenece " << nombre << " es " << vVeterinaria->getnombrevet();
+}
+
+void Perro::setRaza(Raza *rRaza) {
+    this->rRaza= rRaza;
+}
+Raza* Perro::getrRaza() {
+    return rRaza;
+}
+
+void Perro::agregarRaza(string nombreR, string paisDeOrg) {
+    this->rRaza = new Raza(nombreR, paisDeOrg);
+}
 
 
 
